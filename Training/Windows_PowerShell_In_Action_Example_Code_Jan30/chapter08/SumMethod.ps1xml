@@ -1,0 +1,24 @@
+<!--
+Windows PowerShell in Action
+
+Chapter 8 Example using Type Data files.
+
+This example types file adds a method Sum()
+to the array type.
+-->
+<Types>
+    <Type>
+        <Name>System.Array</Name>
+        <Members>
+            <ScriptMethod>
+                <Name>Sum</Name>
+                <Script>
+                    $r=$null
+                    foreach ($e in $this) {$r += $e}
+                    $r
+                </Script>
+            </ScriptMethod>
+        </Members>
+    </Type>
+</Types>
+

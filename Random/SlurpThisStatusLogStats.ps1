@@ -1,0 +1,1 @@
+Get-Content .\StatusLog.txt | where {$_ -match "Item complete"} | %{$_ -replace "Item complete: Page ", ""} | %{$_ -replace " was the winner out of ", ","} | %{$_ -replace " pages crawled and processed in ", ","} | %{$_ -replace " sec", ""}
