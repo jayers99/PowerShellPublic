@@ -1,4 +1,31 @@
-foreach ($Computer in get-content d:\batch\lists\ComputerList.txt) 
+<#
+.Synopsis
+   Short description
+.DESCRIPTION
+   Long description
+.EXAMPLE
+   Example of how to use this cmdlet
+.EXAMPLE
+   Another example of how to use this cmdlet
+#>
+
+#Script Name
+#Creator: John Ayers
+#Date: 
+#Updated: 
+#References, if any
+
+#Variables
+
+#Parameters
+
+#Enter Tasks Below as Remarks
+
+param (
+    [Parameter(Mandatory=$true)][string]$listpath
+)
+
+foreach ($Computer in get-content $listpath) 
 {
 	$Computer = $Computer.Trim()
 	if ($Computer -eq "") {continue}
@@ -11,11 +38,9 @@ foreach ($Computer in get-content d:\batch\lists\ComputerList.txt)
 
 	$ServerName = $Computer.ToUpper()
     
-    $ping = new-object System.Net.NetworkInformation.Ping
-    $Reply = $ping.send($Computer)
-	
+#	$reply = Test-Connection -Computername $client -BufferSize 16 -Count 1 -Quiet
     
-    if($Reply.status -eq "success") 
+    if($reply.status -eq "True") 
 	{
         Write-Host "============================================================================"
 		Write-Host "$ServerName is online"

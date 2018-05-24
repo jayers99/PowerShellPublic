@@ -11,10 +11,10 @@ Invoke-Command { Invoke-sqlcmd "EXEC sp_helpdb @dbname= 'OperationsManager'" } -
 Invoke-Command { 
 #hashtable of parameters to splat to Backup-SQLDatabase
 $sqlParams = @{
-Path = "SQLSERVER:\SQL\chi-sql01\default\databases"
-Database = "OperationsManager"
-BackupFile = "d:\backup\OpsManager.bak"
-passthru = $True
+    Path = "SQLSERVER:\SQL\chi-sql01\default\databases"
+    Database = "OperationsManager"
+    BackupFile = "d:\backup\OpsManager.bak"
+    passthru = $True
 }
 Backup-SqlDatabase @sqlparams 
 } -session $s
