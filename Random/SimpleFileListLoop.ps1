@@ -1,4 +1,6 @@
 $listpath = "D:\batch\lists\ComputerList.txt"
+$servicename = "nrsvrmon"
+
 foreach ($Computer in get-content $listpath) 
 {
 	$Computer = $Computer.Trim()
@@ -10,5 +12,7 @@ foreach ($Computer in get-content $listpath)
 	
 	$ServerName = $Computer.ToUpper()
     
-    Write-Host "$ServerName is a servername"    
+    Write-Host "$ServerName"
+    Get-Service -Name $servicename -ComputerName $ServerName | Stop-service
+    Set-Service $servicename -ComputerName $ServerName -StartupType Disabled
 }
