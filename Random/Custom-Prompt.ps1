@@ -1,6 +1,8 @@
+# my favorite
+function prompt {Write-Host 'PS> ' -NoNewline -ForegroundColor Yellow; return ""}
 
 function prompt {'PS> '}
-function prompt {Write-Host 'PS> ' -NoNewline -ForegroundColor Yellow; return ""}
+
 
 function Prompt
 {
@@ -17,3 +19,4 @@ function prompt {"PS [$env:USERNAME@$env:COMPUTERNAME] $(Split-Path $(Get-Locati
 
 
 
+ 
